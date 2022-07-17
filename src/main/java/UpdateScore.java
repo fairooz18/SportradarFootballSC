@@ -21,8 +21,8 @@ public class UpdateScore {
     updateInfo.setHomeScore(homeScore);
     updateInfo.setAwayScore(awayScore);
     System.out.println("Score updated.");
-    System.out.println(updateInfo.homeTeam + "-" + updateInfo.awayTeam + ":"
-        + updateInfo.homeScore + "-" + updateInfo.awayScore);
+    System.out.println(updateInfo.getHomeTeam() + "-" + updateInfo.getAwayTeam() + ":"
+        + updateInfo.getHomeScore() + "-" + updateInfo.getAwayScore());
 
   }
 }

@@ -19,6 +19,8 @@ public class StartGame {
     matchInfo.setMatchStartTime(new Date());
     // store the new started match in a hashmap
     gameStatus.summaryScoreCard(matchInfo, hm);
+    System.out.println(
+        "Match started.");
   }
 
 

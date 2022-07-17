@@ -1,22 +1,14 @@
 import java.util.Date;
 
-public class MatchInfo {
-  public String homeTeam;
-  public String awayTeam;
-  public int homeScore;
-  public int awayScore;
-  public Date matchStartTime;
+public class MatchInfo implements Comparable<MatchInfo>{
+  private String homeTeam;
+  private String awayTeam;
+  private int homeScore;
+  private int awayScore;
+  private Date matchStartTime;
 
   public MatchInfo() {
-
   }
-  /*public MatchInfo(String homeTeam, String awayTeam, int homeScore, int awayScore, Date matchStartTime) {
-    this.homeTeam = homeTeam;
-    this.awayTeam = awayTeam;
-    this.homeScore = homeScore;
-    this.awayScore = awayScore;
-    this.matchStartTime = matchStartTime;
-  }*/
 
   public String getHomeTeam() {
     return homeTeam;
@@ -51,5 +43,23 @@ public class MatchInfo {
   }
   public void setMatchStartTime(Date date) {
     this.matchStartTime = date;
+  }
+
+  @Override
+  public int compareTo(MatchInfo other) {
+    int matchTotalScore = homeScore + awayScore;
+    int otherTotalScore = other.getHomeScore() + other.getAwayScore();
+    if (matchTotalScore > otherTotalScore) {
+      return -1;
+    } else if (matchTotalScore < otherTotalScore) {
+      return 1;
+    }
+    return other.getMatchStartTime().compareTo(matchStartTime);
+  }
+
+  @Override
+  public String toString() {
+    return homeTeam + " " + homeScore +
+        " - " + awayTeam + " " + awayScore;
   }
 }
