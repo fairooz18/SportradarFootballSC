@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class FinishGame {
   public static void run(HashMap<String, MatchInfo> scoreCard) {
@@ -9,27 +13,27 @@ public class FinishGame {
       return;
     }
     System.out.println(
-        "Games going on now are: " + keys.size());
+        "Number of games going on now are: " + keys.size());
     for (int i = 0; i < keys.size(); i++) {
       System.out.println("Press " + i + " to finish " + keys.get(i));
     }
 
     int finish;
     try {
-      finish = Integer.parseInt(readGameNumber.next());
-    } catch (NumberFormatException e) {
-      System.out.println("Number you entered is not an Integer.Try again. ");
+      finish = readGameNumber.nextInt();
+    } catch (InputMismatchException e) {
+      System.out.println("Number you entered is not an Integer. Returning to main menu. ");
       return;
     }
     if (finish >= keys.size() || finish < 0) {
-      System.out.println("Index does not finish. Please try again.");
+      System.out.println("Index does not match. Returning to main menu.");
       return;
     }
     System.out.println(
         "Game "+ keys.get(finish) + " is now finished.");
     scoreCard.remove(keys.get(finish));
     System.out.println(
-        "Games still going on now are: " + scoreCard.size());
+        "Number of games still going on now are: " + scoreCard.size());
     for (String teams: scoreCard.keySet()) {
       System.out.println(teams);
     }
