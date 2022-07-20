@@ -7,21 +7,20 @@ public class MatchInfo implements Comparable<MatchInfo>{
   private int awayScore;
   private Date matchStartTime;
 
-  public MatchInfo() {
+  public MatchInfo(String homeTeam, String awayTeam) {
+    this.homeTeam = homeTeam;
+    this.awayTeam = awayTeam;
+    this.homeScore = 0;
+    this.awayScore = 0;
+    this.matchStartTime = new Date();
   }
 
   public String getHomeTeam() {
     return homeTeam;
   }
-  public void setHomeTeam(String name) {
-    this.homeTeam = name;
-  }
 
   public String getAwayTeam() {
     return awayTeam;
-  }
-  public void setAwayTeam(String name) {
-    this.awayTeam = name;
   }
 
   public int getHomeScore() {
@@ -40,9 +39,6 @@ public class MatchInfo implements Comparable<MatchInfo>{
 
   public Date getMatchStartTime() {
     return matchStartTime;
-  }
-  public void setMatchStartTime(Date date) {
-    this.matchStartTime = date;
   }
 
   @Override

@@ -2,25 +2,33 @@ import java.util.*;
 
 public class StartGame {
 
-  public static void main(HashMap<HomeAwayTeams, MatchInfo> hm) {
-    GameStatus gameStatus = new GameStatus();
-
-    // reading in the teams name to start the game
+  public static void main(HashMap<String, MatchInfo> hm) {
     Scanner readTeams = new Scanner(System.in);
     System.out.println(
         "Enter home team and away team shorts. Press ENTER after each.");
     // storing the teams in variables
-    MatchInfo matchInfo = new MatchInfo();
-    matchInfo.setHomeTeam(readTeams.next());
-    matchInfo.setAwayTeam(readTeams.next());
-    // initial scores are set as 0-0
-    matchInfo.setHomeScore(0);
-    matchInfo.setAwayScore(0);
-    matchInfo.setMatchStartTime(new Date());
+    String homeTeam = readTeams.next().toUpperCase();
+    String awayTeam = readTeams.next().toUpperCase();
+    String homeAwayTeams = homeTeam.concat("-").concat(awayTeam);
+
+    if (hm.containsKey(homeAwayTeams)) {
+      System.out.println(
+          "This game has already started at " + hm.get(homeAwayTeams).getMatchStartTime());
+      return;
+    }
+
+    for (String hat : hm.keySet()) {
+      if (hat.contains(homeTeam) || hat.contains(awayTeam)) {
+        System.out.println(
+            "One of these teams are already playing in match " + hat);
+        return;
+      }
+    }
     // store the new started match in a hashmap
-    gameStatus.summaryScoreCard(matchInfo, hm);
+    hm.put(homeAwayTeams, new MatchInfo(homeTeam, awayTeam));
     System.out.println(
         "Match started.");
+
   }
 
 
