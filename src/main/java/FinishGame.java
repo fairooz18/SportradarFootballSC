@@ -4,7 +4,7 @@ public class FinishGame {
   public static void main(HashMap<String, MatchInfo> scoreCard) {
     Scanner readGameNumber = new Scanner(System.in);
     List<String> keys = new ArrayList<>(scoreCard.keySet());
-    if (keys.size()==0) {
+    if (keys.isEmpty()) {
       System.out.println("No games going on now.");
       return;
     }
@@ -14,7 +14,17 @@ public class FinishGame {
       System.out.println("Press " + i + " to finish " + keys.get(i));
     }
 
-    int finish = Integer.parseInt(readGameNumber.next());
+    int finish;
+    try {
+      finish = Integer.parseInt(readGameNumber.next());
+    } catch (NumberFormatException e) {
+      System.out.println("Number you entered is not an Integer.Try again. ");
+      return;
+    }
+    if (finish >= keys.size() || finish < 0) {
+      System.out.println("Index does not finish. Please try again.");
+      return;
+    }
     System.out.println(
         "Game "+ keys.get(finish) + "is now finished.");
     scoreCard.remove(keys.get(finish));

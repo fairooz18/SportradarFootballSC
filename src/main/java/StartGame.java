@@ -6,7 +6,6 @@ public class StartGame {
     Scanner readTeams = new Scanner(System.in);
     System.out.println(
         "Enter home team and away team shorts. Press ENTER after each.");
-    // storing the teams in variables
     String homeTeam = readTeams.next().toUpperCase();
     String awayTeam = readTeams.next().toUpperCase();
     String homeAwayTeams = homeTeam.concat("-").concat(awayTeam);
@@ -24,7 +23,6 @@ public class StartGame {
         return;
       }
     }
-    // store the new started match in a hashmap
     hm.put(homeAwayTeams, new MatchInfo(homeTeam, awayTeam));
     System.out.println(
         "Match started.");

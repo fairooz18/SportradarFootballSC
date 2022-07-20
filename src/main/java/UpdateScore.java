@@ -2,11 +2,9 @@ import java.util.*;
 
 public class UpdateScore {
   public static void main(HashMap<String, MatchInfo> scoreCard) {
-    // take the team names combo and use it to find in the Match Info and update the score
-    // reading in the teams name to start the game
     Scanner readGameNumber = new Scanner(System.in);
     final List <String> keys = new ArrayList<>(scoreCard.keySet());
-    if (keys.size()==0) {
+    if (keys.isEmpty()) {
       System.out.println("No games going on now to update.");
       return;
     }

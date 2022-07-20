@@ -2,7 +2,7 @@ import java.util.*;
 
 public class GameSummary {
   public static void main(HashMap<String, MatchInfo> scoreCard) {
-    if (scoreCard.keySet().size()==0) {
+    if (scoreCard.keySet().isEmpty()) {
       System.out.println("No games going on now.");
       return;
     }

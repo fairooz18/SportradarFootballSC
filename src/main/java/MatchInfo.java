@@ -1,11 +1,11 @@
 import java.util.Date;
 
 public class MatchInfo implements Comparable<MatchInfo>{
-  private String homeTeam;
-  private String awayTeam;
+  private final String homeTeam;
+  private final String awayTeam;
   private int homeScore;
   private int awayScore;
-  private Date matchStartTime;
+  private final Date matchStartTime;
 
   public MatchInfo(String homeTeam, String awayTeam) {
     this.homeTeam = homeTeam;
@@ -26,6 +26,7 @@ public class MatchInfo implements Comparable<MatchInfo>{
   public int getHomeScore() {
     return homeScore;
   }
+
   public void setHomeScore(int score) {
     this.homeScore = score;
   }
@@ -33,6 +34,7 @@ public class MatchInfo implements Comparable<MatchInfo>{
   public int getAwayScore() {
     return awayScore;
   }
+
   public void setAwayScore(int score) {
     this.awayScore = score;
   }
