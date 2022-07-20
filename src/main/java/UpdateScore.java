@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class UpdateScore {
-  public static void main(HashMap<String, MatchInfo> scoreCard) {
+  public static void run(HashMap<String, MatchInfo> scoreCard) {
     Scanner readGameNumber = new Scanner(System.in);
     final List <String> keys = new ArrayList<>(scoreCard.keySet());
     if (keys.isEmpty()) {
@@ -18,17 +18,20 @@ public class UpdateScore {
     try {
       match = Integer.parseInt(readGameNumber.next());
     } catch (NumberFormatException e) {
-      System.out.println("Number you entered is not an Integer.Try again. ");
+      System.out.println("Number you entered is not an Integer. Returning to main menu. ");
+      readGameNumber.close();
       return;
     }
     if (match >= keys.size() || match < 0) {
-      System.out.println("Index does not match. Please try again.");
+      System.out.println("Index does not match. Returning to main menu.");
+      readGameNumber.close();
       return;
     }
     System.out.println(
         "Enter home score and away score. Press ENTER after each.");
     int homeScore = Integer.parseInt(readGameNumber.next());
     int awayScore = Integer.parseInt(readGameNumber.next());
+    readGameNumber.close();
     MatchInfo updateInfo = scoreCard.get(keys.get(match));
     updateInfo.setHomeScore(homeScore);
     updateInfo.setAwayScore(awayScore);

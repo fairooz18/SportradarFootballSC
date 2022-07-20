@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class FinishGame {
-  public static void main(HashMap<String, MatchInfo> scoreCard) {
+  public static void run(HashMap<String, MatchInfo> scoreCard) {
     Scanner readGameNumber = new Scanner(System.in);
     List<String> keys = new ArrayList<>(scoreCard.keySet());
     if (keys.isEmpty()) {
-      System.out.println("No games going on now.");
+      System.out.println("No games going on now. ");
       return;
     }
     System.out.println(
@@ -26,13 +26,12 @@ public class FinishGame {
       return;
     }
     System.out.println(
-        "Game "+ keys.get(finish) + "is now finished.");
+        "Game "+ keys.get(finish) + " is now finished.");
     scoreCard.remove(keys.get(finish));
     System.out.println(
         "Games still going on now are: " + scoreCard.size());
     for (String teams: scoreCard.keySet()) {
       System.out.println(teams);
     }
-
   }
 }

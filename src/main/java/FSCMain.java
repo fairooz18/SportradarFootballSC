@@ -8,16 +8,16 @@ public class FSCMain {
     while (status.hasNext()) {
       String val = status.next();
       if (val.equals(String.valueOf(GameCommands.FINISH))) {
-        FinishGame.main(scoreCard);
+        FinishGame.run(scoreCard);
         status.nextLine();
       } else if (val.equals(String.valueOf(GameCommands.START))) {
-        StartGame.main(scoreCard);
+        StartGame.run(scoreCard);
         status.nextLine();
       } else if (val.equals(String.valueOf(GameCommands.UPDATE))) {
-        UpdateScore.main(scoreCard);
+        UpdateScore.run(scoreCard);
         status.nextLine();
       } else if (val.equals(String.valueOf(GameCommands.SUMMARY))) {
-        GameSummary.main(scoreCard);
+        GameSummary.run(scoreCard);
         status.nextLine();
       } else {
         System.out.println("No keyword match. Try one of these \n START \n FINISH\n UPDATE \n SUMMARY");

@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class StartGame {
-
-  public static void main(HashMap<String, MatchInfo> hm) {
+  public static void run(HashMap<String, MatchInfo> hm) {
     Scanner readTeams = new Scanner(System.in);
     System.out.println(
         "Enter home team and away team shorts. Press ENTER after each.");
     String homeTeam = readTeams.next().toUpperCase();
     String awayTeam = readTeams.next().toUpperCase();
+    readTeams.close();
     String homeAwayTeams = homeTeam.concat("-").concat(awayTeam);
 
     if (hm.containsKey(homeAwayTeams)) {
@@ -26,8 +26,5 @@ public class StartGame {
     hm.put(homeAwayTeams, new MatchInfo(homeTeam, awayTeam));
     System.out.println(
         "Match started.");
-
   }
-
-
 }
